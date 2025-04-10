@@ -12,11 +12,13 @@ builder.Services.AddSingleton<ApiApp.Services.TodoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseSwagger();
+app.UseSwaggerUI();
+app.MapOpenApi();
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.MapOpenApi();
+    // Additional development-specific configurations can go here
 }
 
 app.UseHttpsRedirection();
