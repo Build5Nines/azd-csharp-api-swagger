@@ -12,8 +12,13 @@ builder.Services.AddSingleton<ApiApp.Services.TodoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseStaticFiles(); // Serve static files
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API V1");
+    options.RoutePrefix = string.Empty; // Set Swagger UI at the app's root
+});
 app.MapOpenApi();
 
 if (app.Environment.IsDevelopment())
@@ -23,8 +28,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Redirect root "/" to Swagger UI
-app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
 // Map the TodoService endpoints as "/todos/*"
 ApiApp.Services.TodoService.Map("/todos", app);
