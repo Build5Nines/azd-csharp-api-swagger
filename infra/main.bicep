@@ -6,19 +6,6 @@ targetScope = 'subscription'
 param environmentName string
 
 @minLength(1)
-@allowed([
-  'canadaeast'
-  'eastus'
-  'eastus2'
-  'francecentral'
-  'japaneast'
-  'norwayeast'
-  'polandcentral'
-  'southindia'
-  'swedencentral'
-  'switzerlandnorth'
-  'westus3'
-])
 @description('Primary location for all resources.')
 param location string
 
@@ -26,12 +13,8 @@ param location string
 param principalId string = ''
 
 // Optional parameters
-param openAiAccountName string = ''
-param cosmosDbAccountName string = ''
-param userAssignedIdentityName string = ''
 param appServicePlanName string = ''
 param appServiceWebAppName string = ''
-
 
 var abbreviations = loadJsonContent('abbreviations.json')
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
