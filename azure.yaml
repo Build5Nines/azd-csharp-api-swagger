@@ -3,6 +3,6 @@ name: cosmos-copilot
 
 services:
   api:
-    project: ./src/ApiApp.sln
+    project: ./src/ApiApp/ApiApp.csproj
     language: csharp
     host: appservice
