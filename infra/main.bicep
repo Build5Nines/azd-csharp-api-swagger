@@ -9,8 +9,8 @@ param environmentName string
 @description('Primary location for all resources.')
 param location string
 
-@description('Id of the principal to assign database and application roles.')
-param principalId string = ''
+@description('Name of the resource group to create or use')
+param resourceGroupName string 
 
 // Optional parameters
 param appServicePlanName string = ''
@@ -24,7 +24,7 @@ var tags = {
 }
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: environmentName
+  name: resourceGroupName
   location: location
   tags: tags
 }
