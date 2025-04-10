@@ -1,6 +1,6 @@
 # azd-csharp-api-swagger ![Awesome](https://camo.githubusercontent.com/9f4534299c4fb07eccb37b82d3e7aa23cb225094b2dd2a311be7c4b9779c3ed8/68747470733a2f2f617765736f6d652e72652f62616467652d666c6174322e737667)
 
-An AZS template to deploy a C# API with Swagger UI to Azure App Service.
+An Azure Developer CLI (`azd`) template to deploy a C# API with Swagger UI to Azure App Service
 
 This app contains a really simple TODOs API just as an example to get you started using this as a template for a new project.
 
